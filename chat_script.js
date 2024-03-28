@@ -61,7 +61,8 @@ const handleChat = () => {
     
     setTimeout(() => {
         // Display "Thinking..." message while waiting for the response
-        const incomingChatLi = createChatLi("正在輸入訊息...", "incoming");
+        var userName = localStorage.getItem("userName");
+        const incomingChatLi = createChatLi(userName+"正在輸入訊息...", "incoming");
         chatbox.appendChild(incomingChatLi);
         chatbox.scrollTo(0, chatbox.scrollHeight);
         generateResponse(incomingChatLi);
@@ -137,7 +138,7 @@ function startTimer(duration, display) {
 }
 
 window.onload = function () {
-    const duration = 180, // 這裡設置倒數計時的總秒數
+    const duration = 300, // 這裡設置倒數計時的總秒數
         display = document.querySelector('#timer');
     startTimer(duration, display);
     
